@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Resources</h2>
+<ul>
+    {% for p in resource_list%}
+    <li><a href="{% url 'detail' id=p.id %}"> {{p.resourcename}}</a></li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
+
