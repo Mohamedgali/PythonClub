@@ -10,7 +10,7 @@ class Meetings(models.Model):
     agenda=models.TextField(null=True, blank=True)
 
     def __str__(self):
-        return self.meetingname
+        return self.meetingtitle 
     
     class Meta:
         db_table='meeting'
@@ -22,7 +22,7 @@ class MeetingMinutes(models.Model):
 
 
     def __str__(self):
-        return self.meetingminutes
+        return self.minutestext
     
     class Meta:
         db_table='meetingminutes'
@@ -30,10 +30,10 @@ class MeetingMinutes(models.Model):
 class Resource(models.Model):
     resourcename=models.CharField(max_length=255)
     resourcetype=models.CharField(max_length=255)
-    URL=models.URLField()
+    URL=models.URLField(null=True, blank=True)
     dateentered=models.DateField()
     userid=models.ForeignKey(User, on_delete=models.DO_NOTHING)
-    description=models.TextField()
+    description=models.TextField(null=True, blank=True)
 
 
     def __str__(self):
@@ -51,7 +51,7 @@ class Event(models.Model):
     userid=models.ForeignKey(User, on_delete=models.DO_NOTHING)
 
     def __str__(self):
-        return self.eventname
+        return self.eventtitle
     
     class Meta:
         db_table='event'
