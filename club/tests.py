@@ -68,5 +68,5 @@ class newResourceForm(TestCase):
             'userid':'mohamed',
             'description':'shopping stuff',
         }
-        form=ResourceForm (data)
+        form=ResourceForm (data) 
         self.assertTrue(form.is_valid)
