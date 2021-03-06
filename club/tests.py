@@ -63,7 +63,7 @@ class newResourceForm(TestCase):
         data={
             'resourcename':'shop',
             'resourcetype':'stuff',
-            'URL':'https://www.moe/',
+            'URL':'https:www.moe',
             'dateentered':'3-20-2021',
             'userid':'mohamed',
             'description':'shopping stuff ',
