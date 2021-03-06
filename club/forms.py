@@ -7,7 +7,7 @@ class MeetingForm(forms.ModelForm):
     class Meta:
         model=Meetings
         fields='__all__'
-class ResourceForm(forms.ModelForm):
+class ResourceForm(forms.ModelForm):   
     class Meta:
         model=Resource
         fields='__all__'

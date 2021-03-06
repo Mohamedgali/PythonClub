@@ -44,4 +44,4 @@ def newResource(request):
             form=ResourceForm()
     else:
         form=ResourceForm()
-    return render(request, 'club/newresource.html',{'form':form})
+    return render(request, 'club/newresource.html',{'form':form})   
