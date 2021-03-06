@@ -61,12 +61,12 @@ class newMeetingForm(TestCase):
 class newResourceForm(TestCase):
     def test_resourceform(self):
         data={
-            'resourcename':'test',
-            'resourcetype':'book',
-            'URL':'https://www.test.com/',
-            'dateentered':'4-1-2021',
-            'userid':'kemar',
-            'description':'test test',
+            'resourcename':'shop',
+            'resourcetype':'stuff',
+            'URL':'https://www.moe/',
+            'dateentered':'3-20-2021',
+            'userid':'mohamed',
+            'description':'shopping stuff',
         }
         form=ResourceForm (data)
         self.assertTrue(form.is_valid)
