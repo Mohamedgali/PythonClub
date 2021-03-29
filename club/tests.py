@@ -74,37 +74,3 @@ class newResourceForm(TestCase):
 
 
 
-class New_Meeting_Authentication_Test(TestCase):
-    def setUp(self):
-        self.test_user = User.objects.create_user(username = 'testuser1', password =  'P@ssw0rd!')
-        self.type = MeetingMinutes.objects.create(meetingname = 'New Project')
-        self.meeting = Meetings.objects.create(meetingtitle = 'Developing new project', meetingtype = self.type, user = self.test_user, dateentered = datetime.date(2021,1,29), meetinglocation = 'Seattle', meetingtime = datetime.time(22,55,29))
-
-    def test_redirect_if_not_logged_in(self):
-        response=self.client.get(reverse('newmeetings'))    
-        self.assertRedirects(response, '/accounts/login/?next=/club/newmeetings/')
-
-
-class New_MeetingMinute_Authentication_Test(TestCase):
-    def setUp(self):
-        self.test_user = User.objects.create_user(username = 'testuser1', password =  'P@ssw0rd!')
-        self.type = MeetingMinutes.objects.create(meetingname = 'New Project')
-        self.meeting = Meetings.objects.create(meetingtitle = 'Developing new project', meetingtype = self.type, user = self.test_user, dateentered = datetime.date(2021,1,29), meetinglocation = 'Seattle', meetingtime = datetime.time(22,55,29))
-        self.meetingminute = MeetingMinutes.objects.create(minutesdescription = 'Have nice day!!')
-
-    def test_redirect_if_not_logged_in(self):
-        response=self.client.get(reverse('newmeetingminutes'))    
-        self.assertRedirects(response, '/accounts/login/?next=/club/newmeetingminutes/')
-
-
-class New_Resource_Authentication_Test(TestCase):
-    def setUp(self):
-        self.test_user = User.objects.create_user(username = 'testuser1', password =  'P@ssw0rd!')
-        self.type = MeetingMinutes.objects.create(meetingname = 'Developing new project')
-        self.meetingminute = MeetingMinutes.objects.create(minutesdescription = 'Have nice day!')
-        self.meeting = Meetings.objects.create(meetingtitle = 'Developing new project', meetingtype = self.type, user = self.test_user, dateentered = datetime.date(2021,1,29), meetinglocation = 'Seattle', meetingtime = datetime.time(22,55,29))
-        self.resource = Resource.objects.create(name = 'Developing new project', location = 'Seattle', user = self.test_user, meeting = self.meeting, date = datetime.date(2021,1,29), time = datetime.time(22,55,29), text = 'Have nice day!', url='http://www.moe.com', description="Developing new project")
-
-    def test_redirect_if_not_logged_in(self):
-        response=self.client.get(reverse('newresources'))    
-        self.assertRedirects(response, '/accounts/login/?next=/club/newresources/')
